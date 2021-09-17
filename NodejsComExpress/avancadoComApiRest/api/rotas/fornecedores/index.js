@@ -3,10 +3,19 @@ const TabelaFornecedor = require('./TabelaFornecedor')
 const Fornecedor = require('./Fornecedor')
 const { SerializadorFornecedor } = require('../../Serializador')
 
+roteador.options('/', (req, res) => {
+    res.set({
+        'Access-Control-Allow-Methods': 'GET, POST',
+        'Access-Control-Allow-Headers': 'Content-Type'
+    })
+    res.status(204).end()
+})
+
+
 roteador.get('/', async (req, res) => {
     const resultados = await TabelaFornecedor.listar()
     res.status(200)
-    const serializador = new SerializadorFornecedor(res.getHeader('Content-Type'))
+    const serializador = new SerializadorFornecedor(res.getHeader('Content-Type'), ['empresa'])
     res.send(serializador.serializar(resultados))
 })
 
@@ -21,6 +30,14 @@ roteador.post('/', async (req, res, next) => {
     } catch (erro) {
         next(erro)
     }
+})
+
+roteador.options('/:idFornecedor', (req, res) => {
+    res.set({
+        'Access-Control-Allow-Methods': 'GET, PUT, DELETE',
+        'Access-Control-Allow-Headers': 'Content-Type'
+    })
+    res.status(204).end()
 })
 
 roteador.get('/:id', async (req, res, next) => {

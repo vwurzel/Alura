@@ -66,7 +66,7 @@ class SerializadorFornecedor extends Serializador {
         this.contentType = contentType
         this.tagSingular = 'fornecedor'
         this.tagPlural = 'fornecedores'
-        this.camposPublicos = ['id', 'empresa', 'categoria'].concat(camposExtras || [])
+        this.camposPublicos = ['id', 'categoria'].concat(camposExtras || [])
     }
 }
 
