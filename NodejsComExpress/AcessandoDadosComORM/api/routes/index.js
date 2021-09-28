@@ -3,9 +3,9 @@ const niveis = require('./niveisRoute')
 const turmas = require('./turmasRoute')
 
 module.exports = app => {
- app.use(
-   pessoas,
-   niveis,
-   turmas
-   )
- }
+  app.use(
+    pessoas,
+    niveis,
+    turmas
+  )
+}

@@ -4,7 +4,8 @@
   "description": "",
   "main": "api/index.js",
   "scripts": {
-    "dev": "nodemon api/index.js"
+    "dev": "nodemon api/index.js",
+    "lint": "eslint api --fix"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +18,7 @@
     "sequelize-cli": "^6.2.0"
   },
   "devDependencies": {
+    "eslint": "^7.32.0",
     "nodemon": "^2.0.12"
   }
 }
