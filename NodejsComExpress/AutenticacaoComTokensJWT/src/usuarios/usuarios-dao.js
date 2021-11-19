@@ -1,5 +1,5 @@
-const db = require('../../database');
-const { InternalServerError } = require('../erros');
+const db = require('../../database')
+const { InternalServerError } = require('../erros')
 
 module.exports = {
   adiciona: usuario => {
@@ -16,13 +16,13 @@ module.exports = {
         [usuario.nome, usuario.email, usuario.senhaHash, usuario.emailVerificado],
         erro => {
           if (erro) {
-            reject(new InternalServerError('Erro ao adicionar o usuário!'));
+            reject(new InternalServerError('Erro ao adicionar o usuário!'))
           }
 
-          return resolve();
+          return resolve()
         }
-      );
-    });
+      )
+    })
   },
 
   buscaPorId: id => {
@@ -36,13 +36,13 @@ module.exports = {
         [id],
         (erro, usuario) => {
           if (erro) {
-            return reject('Não foi possível encontrar o usuário!');
+            return reject('Não foi possível encontrar o usuário!')
           }
 
-          return resolve(usuario);
+          return resolve(usuario)
         }
-      );
-    });
+      )
+    })
   },
 
   buscaPorEmail: email => {
@@ -56,13 +56,13 @@ module.exports = {
         [email],
         (erro, usuario) => {
           if (erro) {
-            return reject('Não foi possível encontrar o usuário!');
+            return reject('Não foi possível encontrar o usuário!')
           }
 
-          return resolve(usuario);
+          return resolve(usuario)
         }
-      );
-    });
+      )
+    })
   },
 
   lista: () => {
@@ -73,12 +73,12 @@ module.exports = {
         `,
         (erro, usuarios) => {
           if (erro) {
-            return reject('Erro ao listar usuários');
+            return reject('Erro ao listar usuários')
           }
-          return resolve(usuarios);
+          return resolve(usuarios)
         }
-      );
-    });
+      )
+    })
   },
 
   async modificaEmailVerificado(usuario, emailVerificado) {
@@ -99,11 +99,11 @@ module.exports = {
         [usuario.id],
         erro => {
           if (erro) {
-            return reject('Erro ao deletar o usuário');
+            return reject('Erro ao deletar o usuário')
           }
-          return resolve();
+          return resolve()
         }
-      );
-    });
+      )
+    })
   }
-};
+}

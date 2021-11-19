@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken')
 
 const allowlistRefreshToken = require('../../redis/allowlist-refresh-token')
 const blacklistAccessToken = require('../../redis/blacklist-access-token')
-const { InvalidArgumentError } = require('../erros');
+const { InvalidArgumentError } = require('../erros')
 
 
 function criaTokenJWT(id, [tempoQuantidade, tempoUnidade]) {
@@ -13,8 +13,8 @@ function criaTokenJWT(id, [tempoQuantidade, tempoUnidade]) {
     }
     const token = jwt.sign(payload, process.env.CHAVE_JWT, {
         expiresIn: tempoQuantidade + tempoUnidade
-    });
-    return token;
+    })
+    return token
 }
 
 async function verificaTokenJWT(token, nome, blacklist) {

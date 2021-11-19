@@ -1,12 +1,12 @@
-require('dotenv').config();
+require('dotenv').config()
 require('./redis/blacklist-access-token')
 require('./redis/allowlist-refresh-token')
 
-const app = require('./app');
-const port = 3000;
-const db = require('./database');
+const app = require('./app')
+const port = 3000
+const db = require('./database')
 
-const routes = require('./rotas');
-routes(app);
+const routes = require('./rotas')
+routes(app)
 
-app.listen(port, () => console.log(`App listening on port ${port}`));
+app.listen(port, () => console.log(`App listening on port ${port}`))
